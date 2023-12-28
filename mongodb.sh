@@ -33,7 +33,7 @@ fi  # end of the condition
 cp /home/centos/roboshop-shellscript/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG
 for PACKAGE in "mongodb-org"
 do
-   yum list installed $PACKAGE
+   yum list installed $PACKAGE &>>$LOG
      if [ $? -ne 0 ]
      then
         echo "$G The $Package is instlling now $N "
