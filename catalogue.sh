@@ -54,7 +54,7 @@ VALID $? " downloading catalogue zip file"
 
 cd /app 
 
-unzip /tmp/catalogue.zip &>>$LOG
+unzip -o /tmp/catalogue.zip &>>$LOG
 
 VALID $? "extract the catalogue zip file" 
 
@@ -86,7 +86,9 @@ dnf install mongodb-org-shell -y &>>$LOG
 
 VALID $? "installed mongodb-org-shell"
 
-mongo --host mongodb.manepallidevops.online </app/schema/catalogue.js &>>$LOG
+mongo --host mongodb.manepallidevops.online </app/schema/catalogue.js &>>$
+
+VALIDATE $? "Loading catalouge data into MongoDB"
 
 
 
