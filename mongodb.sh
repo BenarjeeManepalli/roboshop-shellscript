@@ -38,7 +38,7 @@ systemctl enable mongod &>>$LOG
 VALID $? "MongoDB enabled"
 systemctl start mongod &>>$LOG
 VALID $? "Mongodb service started"
-sed -i '/s/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
 VALID $? "mogodb.conf edited for remote access"
 systemctl restart mongod
 VALID $? "MongoDb service restart"
