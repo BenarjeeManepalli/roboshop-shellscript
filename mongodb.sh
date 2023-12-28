@@ -34,7 +34,7 @@ cp /home/centos/roboshop-shellscript/mongo.repo /etc/yum.repos.d/mongo.repo &>>$
 for PACKAGE in {mongodb-org}
 do
    yum list installed $PACKAGE
-     if [ $? -ne 0 ]
+     if [ $? -eq 0 ]
      then
         echo -e "$P The MongoDB already installed $Y skipping now"
          exit 1 
