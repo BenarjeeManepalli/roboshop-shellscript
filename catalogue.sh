@@ -34,7 +34,7 @@ VALID $? "enabled nodejs"
 dnf install nodejs -y &>>$LOG
 VALID $? "installed nodejs" 
 
-id roboshop # Checking the roboshop user id 
+id roboshop  &>>$LOG # Checking the roboshop user id 
 
 if [ $? -eq 0 ]
 then
@@ -88,7 +88,7 @@ VALID $? "installed mongodb-org-shell"
 
 mongo --host mongodb.manepallidevops.online </app/schema/catalogue.js &>>$
 
-VALIDATE $? "Loading catalouge data into MongoDB"
+VALID $? "Loading catalouge data into MongoDB"
 
 
 
