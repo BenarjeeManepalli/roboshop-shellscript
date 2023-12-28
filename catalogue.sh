@@ -10,7 +10,7 @@ P="\e[35m"
 N="\e[0m"
 
 VALID(){
-  if [ $1 -eq 0]
+  if [ $1 -eq 0 ]
   then
    echo -e "$G $2 ... SUCCESS $N"
   else
@@ -20,7 +20,7 @@ VALID(){
 
 if [ $ID -eq 0 ]
 then 
-     echo "You are the Root User proceeding the catalogue configuration"
+     echo -e "$G You are the Root User proceeding the catalogue configuration $N"
 else
      echo -e "$R ERROR :: you are not Root User provide the root access to catalogue configuration $N"
 fi #end the condition
