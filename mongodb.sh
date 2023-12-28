@@ -30,7 +30,7 @@ else
      echo -e "$R ERROR:: you are not root user $N"
 exit 1
 fi  # end of the condition
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG
+cp /home/centos/roboshop-shellscript/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG
 
 dnf install mongodb-org -y &>>$LOG
 VALID $? "Installation of MongoDB"
