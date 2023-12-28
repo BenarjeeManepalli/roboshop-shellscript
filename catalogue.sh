@@ -12,9 +12,10 @@ N="\e[0m"
 VALID(){
   if [ $1 -eq 0 ]
   then
-   echo -e "$G $2 ... SUCCESS $N"
+        echo -e "$G $2 ... SUCCESS $N"
   else
-  echo -e "$R ERROR :: $2 .... FAILED $N" 
+        echo -e "$R ERROR :: $2 .... FAILED $N" 
+  exit 1
   fi # Ending the condition
 }
 
@@ -23,6 +24,7 @@ then
      echo -e "$G You are the Root User proceeding the catalogue configuration $N"
 else
      echo -e "$R ERROR :: you are not Root User provide the root access to catalogue configuration $N"
+     exit 1
 fi #end the condition
 
 dnf module disable nodejs -y &>>$LOG
