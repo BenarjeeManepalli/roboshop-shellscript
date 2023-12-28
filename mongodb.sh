@@ -37,7 +37,7 @@ do
      if [ $? -eq 0 ]
         echo -e "$P The MongoDB already installed $Y skipping now"
          exit 1 
-     else
+    else
          echo "$G The $Package is instlling now $N "
         dnf install $Package -y &>>$LOG
         VALID $? "Installation of MongoDB"
