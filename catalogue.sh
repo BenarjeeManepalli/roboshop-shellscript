@@ -14,7 +14,8 @@ VALID(){
   then
    echo -e "$G $2 ... SUCCESS $N"
   else
-   echo -e "$R ERROR :: $2 .... FAILED $N" 
+  echo -e "$R ERROR :: $2 .... FAILED $N" 
+  fi # Ending the condition
 }
 
 if [ $ID -eq 0 ]
