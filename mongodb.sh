@@ -31,17 +31,17 @@ else
 exit 1
 fi  # end of the condition
 cp /home/centos/roboshop-shellscript/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG
-for PACKAGE in {mongodb-org}
+for PACKAGE in "mongodb-org"
 do
    yum list installed $PACKAGE
-     if [ $? -eq 0 ]
+     if [ $? -ne 0 ]
      then
-        echo -e "$P The MongoDB already installed $Y skipping now"
-         exit 1 
-    else
-         echo "$G The $Package is instlling now $N "
+        echo "$G The $Package is instlling now $N "
         dnf install $Package -y &>>$LOG
         VALID $? "Installation of MongoDB"
+    else
+        echo -e "$P The MongoDB already installed $Y skipping now"
+        exit 1
     fi     
 done
 systemctl enable mongod &>>$LOG
