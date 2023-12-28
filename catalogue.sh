@@ -38,7 +38,7 @@ id roboshop # Checking the roboshop user id
 
 if [ $? -eq 0 ]
 then
-    echo -e "$R ERROR:: The user is already created"
+    echo -e "$R ERROR:: $Y The user is already created"
 else 
      useradd roboshop
      VALID $? "roboshop user is creation" 
