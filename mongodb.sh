@@ -41,6 +41,7 @@ do
          echo "$G The $Package is instlling now $N "
         dnf install $Package -y &>>$LOG
         VALID $? "Installation of MongoDB"
+    fi     
 done
 systemctl enable mongod &>>$LOG
 VALID $? "MongoDB enabled"
