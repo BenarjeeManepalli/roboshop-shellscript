@@ -59,13 +59,15 @@ VALID $? " downloading User zip files"
 
 cd /app 
 
-unzip  /tmp/user.zip
+unzip -o /tmp/user.zip &>>$LOG
+
+VALID $? "unzipping user folder" 
 
 cd /app 
 
-npm install  
+npm install  &>>$LOG
 
-VALID $? "installing the user module"
+VALID $? "installing dependencies"
 
 cp /home/centos/roboshop-shellscript/user.service /etc/systemd/system/user.service &>>$LOG
 
@@ -95,6 +97,3 @@ mongo --host mongodb.manepallidevops.online </app/schema/user.js &>>$LOG
 
 VALID $? "Loading schema data into MongoDB"
 
-netstat -lntp
-
-VALID $? "Port Check is"
