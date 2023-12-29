@@ -32,9 +32,10 @@ VALID(){
     if [ $? -eq 0 ]
     then
         echo "$R ERROR:: User already exists $Y skipping $N"
+        exit 1
     else
         echo "$G user is creating now $N"
-        userdd roboshop
+        useradd roboshop
         VALID $? "roboshop user creation"
     fi # end of the condition
 
@@ -57,6 +58,10 @@ VALID(){
     mvn clean package &>>$LOG
 
     VALID $? "Installing dependencies"
+
+    mv target/shipping-1.0.jar shipping.jar &>>$LOG
+
+    VALID $? "moving to shipping"
 
 
 
