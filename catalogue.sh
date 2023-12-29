@@ -12,7 +12,7 @@ N="\e[0m"
 VALID(){
   if [ $1 -eq 0 ]
   then
-        echo -e "$Y $2 ... SUCCESS $N"
+        echo -e "$Y $2 ... $G SUCCESS $N"
   else
         echo -e "$R ERROR :: $2 .... FAILED $N" 
   exit 1
