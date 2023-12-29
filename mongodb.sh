@@ -36,8 +36,8 @@ do
    yum list installed $PACKAGE &>>$LOG
      if [ $? -ne 0 ]
      then
-        echo "$G The $Package is instlling now $N "
-        dnf install $Package -y &>>$LOG
+        echo -e "$G The $PACKAGE is installing now $N "
+        dnf install $PACKAGE -y &>>$LOG
         VALID $? "Installation of MongoDB"
     else
         echo -e "$P The MongoDB already installed $Y skipping now"
