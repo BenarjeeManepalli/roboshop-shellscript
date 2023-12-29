@@ -82,7 +82,7 @@ VALID(){
 
     VALID $? "installing mysql client"
 
-    mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+    mysql -h mongodb.manepallidevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql &>>$LOG
 
     VALID $? "loading schema"
 
