@@ -53,6 +53,7 @@ VALID $? "mogodb.conf edited for remote access"
 systemctl restart mongod
 VALID $? "MongoDb service restart"
 netstat -lntp
+VALID $? "MongoDb port check"
 
 
 

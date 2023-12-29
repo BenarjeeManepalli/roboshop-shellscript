@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%X)
@@ -28,17 +29,21 @@ else
 fi #end the condition
 
 dnf module disable nodejs -y &>>$LOG
+
 VALID $? "module Disabled"
+
 dnf module enable nodejs:18 -y &>>$LOG
+
 VALID $? "enabled nodejs" 
+
 dnf install nodejs -y &>>$LOG
-VALID $? "installed nodejs" 
+
+VALID $? "installing nodejs" 
 
 id roboshop  &>>$LOG # Checking the roboshop user id 
-
 if [ $? -eq 0 ]
 then
-    echo -e "$R ERROR:: $Y The user is already created"
+    echo -e "$R ERROR::The user is already created $Y SKIPPING $N"
 else 
      useradd roboshop
      VALID $? "roboshop user is creation" 
@@ -48,33 +53,33 @@ mkdir -p /app
 
 VALID $? "app directory created" 
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOG
+curl -L -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>>$LOG
 
-VALID $? " downloading catalogue zip file" 
+VALID $? " downloading User zip files" 
 
 cd /app 
 
-unzip -o /tmp/catalogue.zip &>>$LOG
+unzip  /tmp/user.zip
 
-VALID $? "extract the catalogue zip file" 
+cd /app 
 
-cd /app
+npm install  
 
-npm install &>>$LOG
+VALID $? "installing the user module"
 
-cp /home/centos/roboshop-shellscript/catalogue.service /etc/systemd/system/catalogue.service &>>$LOG
+cp /home/centos/roboshop-shellscript/user.service /etc/systemd/system/user.service &>>$LOG
 
-VALID $? "copying the catalogue service file" 
+VALID $? "copying the user service file" 
 
 systemctl daemon-reload &>>$LOG
 
 VALID $? "daemon-reloaded" 
 
-systemctl enable catalogue &>>$LOG
+systemctl enable user &>>$LOG
 
-VALID $? "enabled catalogue" 
+VALID $? "enabled user" 
 
-systemctl start catalogue &>>$LOG
+systemctl start user &>>$LOG
 
 VALID $? "starting catalogue" 
 
@@ -86,23 +91,10 @@ dnf install mongodb-org-shell -y &>>$LOG
 
 VALID $? "installed mongodb-org-shell"
 
-mongo --host mongodb.manepallidevops.online </app/schema/catalogue.js &>>$
+mongo --host mongodb.manepallidevops.online </app/schema/user.js &>>$LOG
 
-VALID $? "Loading catalouge data into MongoDB"
+VALID $? "Loading schema data into MongoDB"
 
 netstat -lntp
 
 VALID $? "Port Check is"
-
-
-
-
-
-
-
-
-
-
-
-
-
