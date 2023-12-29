@@ -89,7 +89,7 @@ VALID $? "installed mongodb-org-shell"
 mongo --host mongodb.manepallidevops.online </app/schema/catalogue.js &>>$
 
 VALID $? "Loading catalouge data into MongoDB"
-
+netstat -lntp
 
 
 

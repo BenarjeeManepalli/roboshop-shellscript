@@ -52,6 +52,7 @@ sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$LOG
 VALID $? "mogodb.conf edited for remote access"
 systemctl restart mongod
 VALID $? "MongoDb service restart"
+netstat -lntp
 
 
 

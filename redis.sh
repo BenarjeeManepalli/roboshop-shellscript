@@ -47,6 +47,8 @@ VALID $? "Enabling redis is"
 
 systemctl start redis &>>$LOG
 
+netstat -lntp
+
 
 
 
