@@ -60,7 +60,46 @@ VALID(){
 
     mv target/shipping-1.0.jar shipping.jar &>>$LOG
 
-    VALID $? "moving to shipping"
+    VALID $? "renaming the jar file"
+
+    cp /home/centos/roboshop-shellscript/shipping.service /etc/systemd/system/shipping.service &>>$LOG
+
+    VALID $? "copying the shipping service file"
+
+    systemctl daemon-reload &>>$LOG
+
+    VALID $? "daemon reload"
+
+    systemctl enable shipping  &>>$LOG
+
+    VALID $? "enable shipping"
+
+    systemctl start shipping &>>$LOG
+
+    VALID $? "starting the shipping service"
+
+    dnf install mysql -y &>>$LOG
+
+    VALID $? "installing mysql client"
+
+    mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+
+    VALID $? "loading schema"
+
+    systemctl restart shipping
+
+    VALID $? "restarting the shipping service"
+
+
+
+
+
+
+
+
+
+
+
 
 
 
