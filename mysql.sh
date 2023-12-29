@@ -27,7 +27,7 @@ VALID(){
 
     VALID $? "disabling mysql module"
 
-    cp /home/centos/roboshop-shellscript/mysql.rep /etc/yum.repos.d/mysql.repo &>>$LOG
+    cp /home/centos/roboshop-shellscript/mysql.repo /etc/yum.repos.d/mysql.repo &>>$LOG
 
     VALID $? "Copying the sql repo file"
 
