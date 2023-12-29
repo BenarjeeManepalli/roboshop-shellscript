@@ -45,12 +45,9 @@ VALID(){
 
     mysql_secure_installation --set-root-pass RoboShop@1 &>>$LOG
 
-    mysql -uroot -pRoboShop@1 &>>$LOG
-
     VALID $? "setting the mysql password"
 
-
-
+    
 
 
 
