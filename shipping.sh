@@ -27,12 +27,11 @@ VALID(){
 
     VALID $? "installing maven"
 
-    id roboshop # checking the user is exists or nor
+    id roboshop &>>$LOG # checking the user is exists or nor
 
     if [ $? -eq 0 ]
     then
-        echo "$R ERROR:: User already exists $Y skipping $N"
-        exit 1
+        echo -e "$R ERROR:: User already exists $Y skipping $N"
     else
         echo "$G user is creating now $N"
         useradd roboshop
