@@ -60,6 +60,7 @@ VALID $? "copying roboshop reverse proxy config"
 
 systemctl restart nginx &>>$LOG
 
+VALID $? "restart nginx"
 
 
 
