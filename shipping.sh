@@ -33,7 +33,7 @@ VALID(){
     then
         echo -e "$R ERROR:: User already exists $Y skipping $N"
     else
-        echo "$G user is creating now $N"
+        echo -e "$G user is creating now $N"
         useradd roboshop
         VALID $? "roboshop user creation"
     fi # end of the condition
