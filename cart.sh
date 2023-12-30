@@ -85,7 +85,7 @@ VALID $? "enabled cart"
 
 systemctl start cart &>>$LOG
 
-VALID $? "starting cart" 
+VALID $? "starting the cart service" 
 
 
 

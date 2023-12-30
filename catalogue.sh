@@ -90,9 +90,6 @@ mongo --host mongodb.manepallidevops.online </app/schema/catalogue.js &>>$
 
 VALID $? "Loading catalouge data into MongoDB"
 
-netstat -lntp
-
-VALID $? "Port Check is"
 
 
 
