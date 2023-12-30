@@ -36,7 +36,7 @@ VALID $? "enabled nginx"
 
 systemctl start nginx &>>$LOG
 
-VALID $? "service started nginx" 
+VALID $? "service starting nginx" 
 
 rm -rf /usr/share/nginx/html/* &>>$LOG
 
